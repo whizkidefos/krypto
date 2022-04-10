@@ -5,10 +5,7 @@ module.exports = {
   networks: {
     ropsten: {
       url: 'https://eth-ropsten.alchemyapi.io/v2/DwsWwafFUqVxu0D__Q0OQBdH-eEzEbyK',
-      accounts: ['8fe882a823fc2315e592e836271cd1a0561a7ad4f10c729207311516aa66d336']
+      accounts: [ '8fe882a823fc2315e592e836271cd1a0561a7ad4f10c729207311516aa66d336' ]
     }
   }
 };
-
-// DwsWwafFUqVxu0D__Q0OQBdH-eEzEbyK
-// https://eth-ropsten.alchemyapi.io/v2/DwsWwafFUqVxu0D__Q0OQBdH-eEzEbyK
