@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { AiFillPlayCircle } from 'react-icons/ai';
 import { SiEthereum } from 'react-icons/si';
 import { BsInfoCircle } from 'react-icons/bs';
+
+import { TransactionContext } from '../context/TransactionContext';
 
 import { Loader } from './';
 
@@ -19,9 +21,11 @@ const Input = ({ placeholder, name, type, value, handleChange }) => (
 );
 
 const Welcome = () => {
+    const { connectWallet, currentAccount } = useContext(TransactionContext);
+
     const isLoading = false;
 
-    const connectWallet = () => { }
+    // const connectWallet = () => { }
 
     const handleChange = () => { }
 
@@ -37,7 +41,8 @@ const Welcome = () => {
                     <p className="w-11/12 mt-5 text-base font-light text-left text-white md:w-9/12">
                         Explore the crypto world. Buy and sell cryptocurrencies easily on Krypto.
                     </p>
-                    <button
+                    {!currentAccount && (
+                        <button
                         type="button"
                         onClick={connectWallet}
                         className="flex flex-row justify-center items-center my-5 bg-[#2952e3] p-3 rounded-full cursor-pointer hover:bg-[#2546bd]"
@@ -47,6 +52,7 @@ const Welcome = () => {
                             Connect Wallet
                         </p>
                     </button>
+                    )}
 
                     <div className="grid w-full grid-cols-2 mt-10 sm:grid-cols-3">
                         <div className={`rounded-tl-2xl ${companyCommonStyles}`}>
@@ -78,7 +84,7 @@ const Welcome = () => {
                             <div>
                                 <p className="text-sm font-light text-white">
                                     {/* {shortenAddress(currentAccount)} */}
-                                    Current Account
+                                    Current Account: {currentAccount}
                                 </p>
                                 <p className="mt-1 text-lg font-semibold text-white">
                                     Ethereum
