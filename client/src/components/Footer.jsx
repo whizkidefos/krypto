@@ -17,7 +17,7 @@ const Footer = () => (
     </div>
 
     <div className="flex flex-col items-center justify-center mt-5">
-      <p className="text-sm text-center text-white">Come join us and hear for the unexpected miracle</p>
+      <p className="text-sm text-center text-white">Got a Web3 project? Do not hesitate to shoot me an email.</p>
       <a href="mailto:me@iefosa.me" target='top' className="mt-2 text-sm font-medium text-center text-white">me@iefosa.me</a>
     </div>
 

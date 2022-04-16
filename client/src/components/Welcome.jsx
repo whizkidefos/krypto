@@ -21,15 +21,19 @@ const Input = ({ placeholder, name, type, value, handleChange }) => (
 );
 
 const Welcome = () => {
-    const { connectWallet, currentAccount } = useContext(TransactionContext);
+    const { connectWallet, currentAccount, formData, sendTransaction, handleChange } = useContext(TransactionContext);
 
     const isLoading = false;
 
-    // const connectWallet = () => { }
+    const handleSubmit = (e) => {
+        const { addressTo, amount, keyword, message } = formData;
 
-    const handleChange = () => { }
+        e.preventDefault();
 
-    const handleSubmit = () => { }
+        if (!addressTo || !amount || !keyword || !message) return;
+
+        sendTransaction();
+    }
 
     return (
         <section className="flex items-center justify-center w-full">
