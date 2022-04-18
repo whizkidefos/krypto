@@ -4,6 +4,7 @@ import { SiEthereum } from 'react-icons/si';
 import { BsInfoCircle } from 'react-icons/bs';
 
 import { TransactionContext } from '../context/TransactionContext';
+import { shortenAddress } from '../utils/shortenAddress';
 
 import { Loader } from './';
 
@@ -21,9 +22,9 @@ const Input = ({ placeholder, name, type, value, handleChange }) => (
 );
 
 const Welcome = () => {
-    const { connectWallet, currentAccount, formData, sendTransaction, handleChange } = useContext(TransactionContext);
+    const { connectWallet, currentAccount, formData, sendTransaction, handleChange, isLoading } = useContext(TransactionContext);
 
-    const isLoading = false;
+    //const isLoading = false;
 
     const handleSubmit = (e) => {
         const { addressTo, amount, keyword, message } = formData;
@@ -87,8 +88,13 @@ const Welcome = () => {
                             </div>
                             <div>
                                 <p className="text-sm font-light text-white">
-                                    {/* {shortenAddress(currentAccount)} */}
-                                    Current Account: {currentAccount}
+                                    {currentAccount ? (
+                                        <span className='font-semibold'>{shortenAddress(currentAccount)}</span>
+                                    ) : (
+                                        <span>Click Login or Connect Wallet</span>
+                                    )}
+                                    
+                                    {/* Current Account: <span className="font-semibold">{shortenAddress(currentAccount)}</span> */}
                                 </p>
                                 <p className="mt-1 text-lg font-semibold text-white">
                                     Ethereum
